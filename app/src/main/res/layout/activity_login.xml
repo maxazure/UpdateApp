@@ -102,7 +102,7 @@
                 android:background="@drawable/background_edit" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/forgotPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Forget password"

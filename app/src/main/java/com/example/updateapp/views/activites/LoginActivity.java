@@ -74,23 +74,23 @@ public class LoginActivity extends AppCompatActivity {
                 String email = binding.edtEmail.getText().toString();
                 String password = binding.edtPassword.getText().toString();
 
-                if(email.isEmpty()) {
+                if (email.isEmpty()) {
                     binding.edtEmail.setError("Enter Your Valid Email");
-                }else if (password.isEmpty()) {
+                } else if (password.isEmpty()) {
                     binding.edtPassword.setError("Enter Strong Password");
-                }else {
+                } else {
 
                     progressDialog.show();
                     auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 progressDialog.dismiss();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }else {
+                            } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -108,29 +108,37 @@ public class LoginActivity extends AppCompatActivity {
                 String email = binding.edtEmail.getText().toString();
                 String password = binding.edtPassword.getText().toString();
 
-                if(email.isEmpty()) {
+                if (email.isEmpty()) {
                     binding.edtEmail.setError("Enter Your Valid Email");
-                }else if (password.isEmpty()) {
+                } else if (password.isEmpty()) {
                     binding.edtPassword.setError("Enter Strong Password");
-                }else {
+                } else {
 
                     progressDialog.show();
                     auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 progressDialog.dismiss();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }else {
+                            } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 }
+            }
+        });
+
+        binding.forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgetActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -141,7 +149,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        if (auth.getCurrentUser()!= null){
+        if (auth.getCurrentUser() != null) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -207,7 +215,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
             } catch (ApiException e) {
-                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+                Toast.makeText(
+                        this,
+                        "Google Sign-In Error: " + e.getStatusCode() + "\n" + e.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
             }
         }
     }
