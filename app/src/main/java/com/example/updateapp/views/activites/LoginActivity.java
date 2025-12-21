@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 } else {
                                     Toast.makeText(LoginActivity.this,
-                                            "Firebase Authentication Failed",
+                                            getString(R.string.firebase_auth_failed),
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -220,7 +220,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(
                         this,
-                        "Google Sign-In Error: " + e.getStatusCode() + "\n" + e.getMessage(),
+                        getString(R.string.google_signin_error, e.getStatusCode(), e.getMessage()),
                         Toast.LENGTH_LONG
                 ).show();
             }

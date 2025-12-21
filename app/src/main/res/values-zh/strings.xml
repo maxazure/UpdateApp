@@ -87,4 +87,21 @@
     <string name="permission_denied">权限被拒绝！</string>
     <string name="profile_updated">头像已更新</string>
     <string name="coming_soon">即将推出</string>
+    
+    <!-- Additional strings -->
+    <string name="firebase_auth_failed">Firebase身份验证失败</string>
+    <string name="google_signin_error">Google登录错误: %1$d\n%2$s</string>
+    <string name="google_login_message">点击Google按钮使用Google登录</string>
+    <string name="error_message">错误: %1$s</string>
+    <string name="email_already_registered">此邮箱已注册。请登录。</string>
+    <string name="back_to">返回到</string>
+    <string name="forget_password_button">忘记密码</string>
+    <string name="check_email">请检查您的邮箱</string>
+    <string name="otp_verification">验证码验证</string>
+    <string name="verification_code_sent">我们已发送验证码到</string>
+    <string name="verify">验证</string>
+    <string name="enter_valid_otp">请输入有效的验证码</string>
+    <string name="otp_verification_failed">验证码验证失败</string>
+    <string name="otp_error">验证码错误: %1$s</string>
+    <string name="auth_error_user_not_found">身份验证错误：登录后未找到用户</string>
 </resources>

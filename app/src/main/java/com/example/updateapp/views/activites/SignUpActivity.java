@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         googleBtn.setOnClickListener(v -> {
-            Toast.makeText(this, "Click on Google button to login with Google", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.google_login_message), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             finish();
         });
@@ -91,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                     if (!task.isSuccessful()) {
                         progressDialog.dismiss();
-                        Toast.makeText(this, "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.error_message, task.getException()), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -100,7 +100,7 @@ public class SignUpActivity extends AppCompatActivity {
                     if (exists) {
                         progressDialog.dismiss();
                         Toast.makeText(this,
-                                "This email is already registered. Please login.",
+                                getString(R.string.email_already_registered),
                                 Toast.LENGTH_LONG).show();
                         return;
                     }

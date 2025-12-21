@@ -58,7 +58,7 @@ public class ForgetActivity extends AppCompatActivity {
 
                                 progressDialog.dismiss();
 
-                                Toast.makeText(ForgetActivity.this, "Please Check Your Email", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ForgetActivity.this, getString(R.string.check_email), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(ForgetActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();

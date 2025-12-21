@@ -71,7 +71,7 @@ public class OTPActivity extends AppCompatActivity {
             String otp = getOtp();
 
             if (otp.length() < 6) {
-                Toast.makeText(this, "Please enter valid OTP", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.enter_valid_otp), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -153,14 +153,14 @@ public class OTPActivity extends AppCompatActivity {
 
                     if (!task.isSuccessful()) {
                         dialog.dismiss();
-                        String m = task.getException() != null ? task.getException().getMessage() : "OTP verification failed";
-                        Toast.makeText(OTPActivity.this, "OTP Error: " + m, Toast.LENGTH_LONG).show();
+                        String m = task.getException() != null ? task.getException().getMessage() : getString(R.string.otp_verification_failed);
+                        Toast.makeText(OTPActivity.this, getString(R.string.otp_error, m), Toast.LENGTH_LONG).show();
                         return;
                     }
 
                     if (auth.getCurrentUser() == null) {
                         dialog.dismiss();
-                        Toast.makeText(OTPActivity.this, "Authentication error: user not found after sign-in", Toast.LENGTH_LONG).show();
+                        Toast.makeText(OTPActivity.this, getString(R.string.auth_error_user_not_found), Toast.LENGTH_LONG).show();
                         return;
                     }
 

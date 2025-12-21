@@ -43,11 +43,11 @@
     <string name="unknown">unknown</string>
     <string name="sample_email">abc@gmail.com</string>
     <string name="general">General</string>
-    <string name="check_new">Check what a new</string>
+    <string name="check_new">Check what\'s new</string>
     <string name="rate_us">Rate Us</string>
     <string name="help">Help</string>
     <string name="share_app">Share App</string>
-    <string name="terms_conditions">Term and Condition</string>
+    <string name="terms_conditions">Terms and Conditions</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="help_support">Help and Support</string>
     <string name="contact_us">Contact us</string>
@@ -78,6 +78,13 @@
     <string name="profile_uploading">Profile Uploading</string>
     <string name="uploading_profile">We Are Uploading Your Profile</string>
     <string name="verifying_otp">Verifying OTP</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="verification_code_sent">We have sent a verification code to</string>
+    <string name="verify">Verify</string>
+    <string name="enter_valid_otp">Please enter valid OTP</string>
+    <string name="otp_verification_failed">OTP verification failed</string>
+    <string name="otp_error">OTP Error: %1$s</string>
+    <string name="auth_error_user_not_found">Authentication error: user not found after sign-in</string>
     
     <!-- Error Messages -->
     <string name="enter_valid_email">Enter Your Valid Email</string>
@@ -87,4 +94,14 @@
     <string name="permission_denied">Permission Denied!</string>
     <string name="profile_updated">Profile update</string>
     <string name="coming_soon">Coming Soon</string>
+    
+    <!-- Additional strings -->
+    <string name="firebase_auth_failed">Firebase Authentication Failed</string>
+    <string name="google_signin_error">Google Sign-In Error: %1$d\n%2$s</string>
+    <string name="google_login_message">Click on Google button to login with Google</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="email_already_registered">This email is already registered. Please login.</string>
+    <string name="back_to">Back to</string>
+    <string name="forget_password_button">FORGET PASSWORD</string>
+    <string name="check_email">Please Check Your Email</string>
 </resources>
