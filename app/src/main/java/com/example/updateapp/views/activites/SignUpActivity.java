@@ -91,7 +91,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                     if (!task.isSuccessful()) {
                         progressDialog.dismiss();
-                        Toast.makeText(this, getString(R.string.error_message, task.getException()), Toast.LENGTH_SHORT).show();
+                        String errorMessage = task.getException() != null ? 
+                            task.getException().getMessage() : 
+                            getString(R.string.generic_error);
+                        Toast.makeText(this, getString(R.string.error_message, errorMessage), Toast.LENGTH_SHORT).show();
                         return;
                     }
 

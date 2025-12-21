@@ -100,6 +100,7 @@
     <string name="google_signin_error">Google Sign-In Error: %1$d\n%2$s</string>
     <string name="google_login_message">Click on Google button to login with Google</string>
     <string name="error_message">Error: %1$s</string>
+    <string name="generic_error">An unexpected error occurred</string>
     <string name="email_already_registered">This email is already registered. Please login.</string>
     <string name="back_to">Back to</string>
     <string name="forget_password_button">FORGET PASSWORD</string>

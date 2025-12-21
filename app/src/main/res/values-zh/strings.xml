@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">UpdateApp</string>
     <string name="hello_blank_fragment">你好空白片段</string>
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
     
     <!-- Language Selection -->
     <string name="language">语言</string>
@@ -93,6 +94,7 @@
     <string name="google_signin_error">Google登录错误: %1$d\n%2$s</string>
     <string name="google_login_message">点击Google按钮使用Google登录</string>
     <string name="error_message">错误: %1$s</string>
+    <string name="generic_error">发生了意外错误</string>
     <string name="email_already_registered">此邮箱已注册。请登录。</string>
     <string name="back_to">返回到</string>
     <string name="forget_password_button">忘记密码</string>
