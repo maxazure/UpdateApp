@@ -1,5 +1,6 @@
 package com.example.updateapp.views.activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.updateapp.R;
+import com.example.updateapp.utils.LocaleHelper;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,5 +43,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                 });
             }
         },500);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.updateapp.databinding.ActivityForgetBinding;
+import com.example.updateapp.utils.LocaleHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,7 +35,7 @@ public class ForgetActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please Wait");
+        progressDialog.setTitle(getString(com.example.updateapp.R.string.please_wait));
 
         binding.btnForget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +45,7 @@ public class ForgetActivity extends AppCompatActivity {
 
                 if (email.isEmpty()){
 
-                    binding.edtForgetEmail.setError("Enter Valid Email");
+                    binding.edtForgetEmail.setError(getString(com.example.updateapp.R.string.enter_valid_email));
                 }else {
 
                     progressDialog.show();
@@ -80,5 +82,10 @@ public class ForgetActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityLoginBinding;
+import com.example.updateapp.utils.LocaleHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -64,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Logging In");
-        progressDialog.setMessage("Please wait...");
+        progressDialog.setTitle(getString(R.string.logging_in));
+        progressDialog.setMessage(getString(R.string.please_wait));
 
         binding.emailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +77,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = binding.edtPassword.getText().toString();
 
                 if (email.isEmpty()) {
-                    binding.edtEmail.setError("Enter Your Valid Email");
+                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
                 } else if (password.isEmpty()) {
-                    binding.edtPassword.setError("Enter Strong Password");
+                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
                 } else {
 
                     progressDialog.show();
@@ -109,9 +111,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = binding.edtPassword.getText().toString();
 
                 if (email.isEmpty()) {
-                    binding.edtEmail.setError("Enter Your Valid Email");
+                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
                 } else if (password.isEmpty()) {
-                    binding.edtPassword.setError("Enter Strong Password");
+                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
                 } else {
 
                     progressDialog.show();
@@ -223,5 +225,10 @@ public class LoginActivity extends AppCompatActivity {
                 ).show();
             }
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

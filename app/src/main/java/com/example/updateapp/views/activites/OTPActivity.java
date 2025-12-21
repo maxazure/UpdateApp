@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.databinding.ActivityOtpactivityBinding;
 import com.example.updateapp.models.UserModel;
+import com.example.updateapp.utils.LocaleHelper;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,8 +57,8 @@ public class OTPActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
 
         dialog = new ProgressDialog(this);
-        dialog.setTitle("Verifying OTP");
-        dialog.setMessage("Please wait...");
+        dialog.setTitle(getString(com.example.updateapp.R.string.verifying_otp));
+        dialog.setMessage(getString(com.example.updateapp.R.string.please_wait));
 
         getDataFromIntent();
         setupOtpInputs();
@@ -223,6 +225,11 @@ public class OTPActivity extends AppCompatActivity {
                     if (dialog.isShowing()) dialog.dismiss();
                     Toast.makeText(OTPActivity.this, "Failed to save user data: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 
 }

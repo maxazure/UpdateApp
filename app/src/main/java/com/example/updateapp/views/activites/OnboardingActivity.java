@@ -1,5 +1,6 @@
 package com.example.updateapp.views.activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -15,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.OnboardingAdapter;
+import com.example.updateapp.utils.LocaleHelper;
 
 public class OnboardingActivity extends AppCompatActivity {
 
@@ -113,4 +115,9 @@ public class OnboardingActivity extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 }
