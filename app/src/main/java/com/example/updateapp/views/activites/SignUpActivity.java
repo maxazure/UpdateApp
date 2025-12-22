@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivitySignUpBinding;
+import com.example.updateapp.utils.LocaleHelper;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -46,8 +48,8 @@ public class SignUpActivity extends AppCompatActivity {
         emailBtn = findViewById(R.id.email_btn);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Creating Your Account");
-        progressDialog.setMessage("Your Account Is Creating");
+        progressDialog.setTitle(getString(R.string.creating_account));
+        progressDialog.setMessage(getString(R.string.account_creating));
 
         binding.btnSignUp.setOnClickListener(v -> doValidation());
 
@@ -57,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         googleBtn.setOnClickListener(v -> {
-            Toast.makeText(this, "Click on Google button to login with Google", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.google_login_message), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             finish();
         });
@@ -72,10 +74,10 @@ public class SignUpActivity extends AppCompatActivity {
         String number = binding.edtMobile.getText().toString();
         String password = binding.edtPassword.getText().toString();
 
-        if (name.isEmpty()) { binding.edtName.setError("Enter Your Good Name"); return; }
-        if (email.isEmpty()) { binding.edtEmail.setError("Enter Your Valid Email"); return; }
-        if (number.isEmpty()) { binding.edtMobile.setError("Enter Your Valid Mobile Number"); return; }
-        if (password.isEmpty()) { binding.edtPassword.setError("Enter Strong Password"); return; }
+        if (name.isEmpty()) { binding.edtName.setError(getString(R.string.enter_good_name)); return; }
+        if (email.isEmpty()) { binding.edtEmail.setError(getString(R.string.enter_valid_email)); return; }
+        if (number.isEmpty()) { binding.edtMobile.setError(getString(R.string.enter_valid_mobile)); return; }
+        if (password.isEmpty()) { binding.edtPassword.setError(getString(R.string.enter_strong_password)); return; }
 
         checkEmailAlreadyExists(name, email, number, password);
     }
@@ -89,7 +91,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                     if (!task.isSuccessful()) {
                         progressDialog.dismiss();
-                        Toast.makeText(this, "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        String errorMessage = task.getException() != null ? 
+                            task.getException().getMessage() : 
+                            getString(R.string.generic_error);
+                        Toast.makeText(this, getString(R.string.error_message, errorMessage), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -98,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
                     if (exists) {
                         progressDialog.dismiss();
                         Toast.makeText(this,
-                                "This email is already registered. Please login.",
+                                getString(R.string.email_already_registered),
                                 Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -160,5 +165,10 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         startActivity(intent);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

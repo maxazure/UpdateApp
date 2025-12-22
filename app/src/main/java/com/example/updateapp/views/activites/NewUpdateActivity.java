@@ -1,5 +1,6 @@
 package com.example.updateapp.views.activites;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityNewUpdateBinding;
+import com.example.updateapp.utils.LocaleHelper;
 
 public class NewUpdateActivity extends AppCompatActivity {
 
@@ -32,5 +34,10 @@ public class NewUpdateActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }
