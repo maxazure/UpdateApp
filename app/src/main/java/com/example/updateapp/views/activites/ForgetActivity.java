@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityForgetBinding;
 import com.example.updateapp.utils.LocaleHelper;
 import com.google.android.gms.tasks.OnCompleteListener;

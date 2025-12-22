@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.updateapp.MainActivity;
+import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityOtpactivityBinding;
 import com.example.updateapp.models.UserModel;
 import com.example.updateapp.utils.LocaleHelper;
