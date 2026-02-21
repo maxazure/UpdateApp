@@ -118,7 +118,9 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        Exception e = task.getException();
+                        String msg = (e != null) ? e.getLocalizedMessage() : getString(R.string.enter_valid_email);
+                        Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 }
             });
