@@ -20,6 +20,7 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -70,9 +71,9 @@ public class SignUpActivity extends AppCompatActivity {
     private void doValidation() {
 
         String name = binding.edtName.getText().toString().trim();
-        String email = binding.edtEmail.getText().toString().trim().toLowerCase();
+        String email = binding.edtEmail.getText().toString().trim().toLowerCase(Locale.ROOT);
         String number = binding.edtMobile.getText().toString().trim();
-        String password = binding.edtPassword.getText().toString().trim();
+        String password = binding.edtPassword.getText().toString();
 
         if (name.isEmpty()) { binding.edtName.setError(getString(R.string.enter_good_name)); return; }
         if (email.isEmpty()) { binding.edtEmail.setError(getString(R.string.enter_valid_email)); return; }
