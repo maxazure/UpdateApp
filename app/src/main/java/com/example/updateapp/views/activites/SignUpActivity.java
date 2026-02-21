@@ -69,10 +69,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void doValidation() {
 
-        String name = binding.edtName.getText().toString();
-        String email = binding.edtEmail.getText().toString();
-        String number = binding.edtMobile.getText().toString();
-        String password = binding.edtPassword.getText().toString();
+        String name = binding.edtName.getText().toString().trim();
+        String email = binding.edtEmail.getText().toString().trim().toLowerCase();
+        String number = binding.edtMobile.getText().toString().trim();
+        String password = binding.edtPassword.getText().toString().trim();
 
         if (name.isEmpty()) { binding.edtName.setError(getString(R.string.enter_good_name)); return; }
         if (email.isEmpty()) { binding.edtEmail.setError(getString(R.string.enter_valid_email)); return; }

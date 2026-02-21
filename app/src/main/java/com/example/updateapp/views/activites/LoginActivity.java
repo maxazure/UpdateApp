@@ -73,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String email = binding.edtEmail.getText().toString();
-                String password = binding.edtPassword.getText().toString();
+                String email = binding.edtEmail.getText().toString().trim().toLowerCase();
+                String password = binding.edtPassword.getText().toString().trim();
 
                 if (email.isEmpty()) {
                     binding.edtEmail.setError(getString(R.string.enter_valid_email));
@@ -107,8 +107,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = binding.edtEmail.getText().toString();
-                String password = binding.edtPassword.getText().toString();
+                String email = binding.edtEmail.getText().toString().trim().toLowerCase();
+                String password = binding.edtPassword.getText().toString().trim();
 
                 if (email.isEmpty()) {
                     binding.edtEmail.setError(getString(R.string.enter_valid_email));
